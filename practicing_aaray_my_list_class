@@ -1,0 +1,220 @@
+import ctypes
+class mylist:
+    def __init__(self):
+        self.size = 1
+        self.n = 0
+        #create a ctype array self.size
+        self.a=self.__make_array(self.size)
+    def __make_array(self,capacity):
+        return(capacity*ctypes.py_object)()
+        #create a ctype array with size capacity
+    #length function 
+    def __len__(self):
+        return self.n
+    
+    #append function
+    def append(self,item):
+        if self.n ==self.size:
+            self.__resize(self.size*2)
+        #append
+        self.a[self.n]=item
+        self.n = self.n+1
+    
+    #print function
+    def __str__(self):
+        #[1,2,3] showing over printing like this so it look more good
+        result = ''
+        for i in range(self.n):
+            result = result+str(self.a[i])+','
+        return '['+result[:-1]+']'
+        
+    #indexing
+    def __getitem__(self,index):
+        if 0<=index<self.n:
+            return self.a[index]
+        else:
+            return 'indexerror -- index not found'
+    
+    #pop function
+    def pop(self):
+        if self.n==0:
+            return 'emptylist'
+        print(self.a[self.n-1])
+        self.n=self.n-1
+    
+    #clear function
+    def clear(self):
+        self.n=0
+        self.size = 1
+    
+    #find
+    def find(self,item):
+        for i in range(Self.n):
+            if self.a[i]==item:
+                return i
+            
+        return 'valueerror--value not found'
+                
+    #insert function
+    def insert(Self,pos,item):
+        if self.n==self.size:
+            self.__resize(self.size*2)
+        
+        for i in range(self.n,pos,-1):
+            self.a[i]=self.a[i-1]
+            self.a[pos]=item
+            self.n=self.n+1
+    
+    #delete function
+    def __delitem__(self,pos):
+        if 0<=pos<self.n:
+            for i in range(pos,self.n-1):
+                self.a[i]=self.a[i+1]
+    
+    #remove function
+    def remove(self,item):
+        pos = self.find(item)
+        if type(pos)==int:
+            #delete
+            self.__delitem__(pos)
+        else:
+            return pos
+    #max function       
+    def max(self):
+        value = self.a[0]
+        for i in range(self.n):
+            if self.a[i]>value:
+               value = self.a[i]
+        return value
+        
+    #min function
+    def min(self):
+        value = self.a[0]
+        for i in range(self.n):
+            if self.a[i]<value:
+                value = self.a[i]
+        return value
+    
+    #sum function
+    def sum(self):
+        add = 0
+        for i in range(self.n):
+            add = add+self.a[i]
+        return add
+    
+    #decending function
+    def decen(self):
+        for i in range(self.n-1):
+            for j in range(self.n-1-i):
+                if self.a[j]< self.a[j+1]:
+                    temp = self.a[j]
+                    self.a[j] = self.a[j+1]
+                    self.a[j+1]=temp
+                
+    #decending function           
+    def sort(self):
+        
+        result = []
+        if self.n <= 1:
+            return 
+        
+        mid = self.n//2
+        left = mylist()
+        right =mylist()
+        
+        for i in range(mid):
+            left.append(self.a[i])
+        for j in range(mid,self.n):
+            right.append(self.a[j])
+            
+        left.sort()
+        right.sort()
+        
+        i=j=k=0
+        
+        while i < left.n and j< right.n:
+            if left.a[i] >= right.a[j]:
+                self.a[k]=left.a[i]
+                i+=1
+            else:
+                self.a[k]=right.a[j]
+                j+=1
+            k+=1
+        while i<left.n:
+            self.a[k] = left.a[i]
+            i+=1
+            k+=1
+        while j<right.n:
+            self.a[k] = right.a[j]
+            j+=1
+            k+=1
+       
+    #accending function
+    def accen(self):
+        
+        result = []
+        if self.n <= 1:
+            return
+        
+        mid=self.n//2
+        left = mylist()
+        right = mylist()
+        
+        for i in range(mid):
+            left.append(self.a[i])
+        for j in range(mid,self.n):
+            right.append(self.a[j])
+        
+        left.accen()
+        right.accen()
+        i = j = k =0
+        while i < left.n and j < right.n:
+            if left.a[i] < right.a[j]:
+                self.a[k] = left.a[i]
+                i+=1
+            else:
+                self.a[k] = right.a[j]
+                j+=1
+            k+=1
+        
+        while i < left.n:
+            self.a[k] = left.a[i]
+            i+=1
+            k+=1
+        while j <right.n:
+            self.a[k] = right.a[j]
+            j+=1
+            k+=1
+    
+    
+    #resize function
+    def __resize(self,new_capacity):
+        b = self.__make_array(new_capacity)
+        self.size=new_capacity
+        #copy the content above
+        for i in range(self.n):
+            b[i] = self.a[i]
+        #reassign the self.a
+        self.a = b
+l =mylist()
+l.append(10)
+l.append(20)
+l.append(30)
+print(l)
+print(len(l))
+print(l.a[2])
+print(l.pop())
+print(l.max())
+l.append(30)
+l.append(40)
+l.append(0)
+l.append(5)
+print(l.max())
+print(l.min())
+print(l.sum())
+print(l.decen())
+print(l)
+print(l.sort())
+print(l)
+print(l.accen())
+print(l)
