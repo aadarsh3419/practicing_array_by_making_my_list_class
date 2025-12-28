@@ -6,37 +6,37 @@
 
 ## 📌 Main Purpose of This Project (Very Important)
 
-Is project ka **sabse main purpose** yeh tha:
+The **primary goal of this project** was:
 
-1. **Array ko deeply samajhna** (memory, size vs capacity, resizing)
-2. **Python ki built-in `list` use kiye bina** apni **khud ki list class** banana
-3. Ye samajhna ki list ke andar:
+1. To **deeply understand how arrays work internally** (memory, size vs capacity, resizing)
+2. To build **my own list class without using Python’s built-in `list`**
+3. To understand how a list handles:
 
-   * elements kaise store hote hain
-   * size kaise badhta hai
-   * insert / delete kaise kaam karta hai
+   * element storage
+   * size growth
+   * insertion and deletion operations
 
-Isliye `mylist` class banayi gayi hai — jo internally **dynamic array** ki tarah kaam karti hai.
+For this reason, the `mylist` class was created, which internally behaves like a **dynamic array**.
 
-Sorting is project ka secondary part hai, jiska purpose **algorithm thinking aur optimization** dikhana hai.
+Sorting is a secondary part of this project, added to demonstrate **algorithmic thinking and optimization**.
 
 ---
 
 ## 🧠 What is `mylist`?
 
-`mylist` ek **custom list implementation** hai jo:
+`mylist` is a **custom list implementation** that:
 
-* `ctypes` ka use karke manual memory allocate karti hai
-* Dynamic resizing follow karti hai (capacity double)
-* Python `list` ke basic features replicate karti hai
+* Uses `ctypes` for manual memory allocation
+* Follows dynamic resizing (capacity doubling strategy)
+* Replicates the basic behavior of Python’s built-in `list`
 
-Ye project mainly **learning ke liye** banaya gaya hai, na ki built-in list ko replace karne ke liye.
+This project is mainly built **for learning purposes**, not to replace Python’s native list.
 
 ---
 
 ## 🧠 `mylist` Class – Functions & Their Purpose
 
-Neeche diye gaye har function ka **clear kaam** bataya gaya hai.
+Below is a clear explanation of **each function implemented inside the `mylist` class**.
 
 ---
 
@@ -44,7 +44,7 @@ Neeche diye gaye har function ka **clear kaam** bataya gaya hai.
 
 **Purpose:**
 
-* Empty dynamic array initialize karna
+* Initializes an empty dynamic array
 
 ---
 
@@ -52,7 +52,7 @@ Neeche diye gaye har function ka **clear kaam** bataya gaya hai.
 
 **Purpose:**
 
-* Low-level array memory create karna
+* Creates low-level array memory using `ctypes`
 
 ---
 
@@ -60,7 +60,7 @@ Neeche diye gaye har function ka **clear kaam** bataya gaya hai.
 
 **Purpose:**
 
-* Current number of elements batana
+* Returns the current number of elements in the list
 
 ---
 
@@ -68,8 +68,8 @@ Neeche diye gaye har function ka **clear kaam** bataya gaya hai.
 
 **Purpose:**
 
-* List ke end me element add karna
-* Agar capacity full ho jaaye to size double karna
+* Adds an element to the end of the list
+* Doubles the capacity when the array is full
 
 ---
 
@@ -77,7 +77,7 @@ Neeche diye gaye har function ka **clear kaam** bataya gaya hai.
 
 **Purpose:**
 
-* List ko readable format me print karna
+* Prints the list in a readable format
 
 ---
 
@@ -85,7 +85,7 @@ Neeche diye gaye har function ka **clear kaam** bataya gaya hai.
 
 **Purpose:**
 
-* Index ke through element access karna
+* Allows element access using indexing
 
 ---
 
@@ -93,7 +93,7 @@ Neeche diye gaye har function ka **clear kaam** bataya gaya hai.
 
 **Purpose:**
 
-* Last element remove karna
+* Removes the last element from the list
 
 ---
 
@@ -101,7 +101,7 @@ Neeche diye gaye har function ka **clear kaam** bataya gaya hai.
 
 **Purpose:**
 
-* List ko logically empty karna
+* Logically clears the list
 
 ---
 
@@ -109,7 +109,7 @@ Neeche diye gaye har function ka **clear kaam** bataya gaya hai.
 
 **Purpose:**
 
-* Given element ka index find karna
+* Finds and returns the index of a given element
 
 ---
 
@@ -117,7 +117,7 @@ Neeche diye gaye har function ka **clear kaam** bataya gaya hai.
 
 **Purpose:**
 
-* Given position par element insert karna
+* Inserts an element at a given position
 
 ---
 
@@ -125,7 +125,7 @@ Neeche diye gaye har function ka **clear kaam** bataya gaya hai.
 
 **Purpose:**
 
-* Given index ka element delete karna
+* Deletes the element at the given index
 
 ---
 
@@ -133,7 +133,7 @@ Neeche diye gaye har function ka **clear kaam** bataya gaya hai.
 
 **Purpose:**
 
-* Value ke basis par element remove karna
+* Removes an element based on its value
 
 ---
 
@@ -141,7 +141,7 @@ Neeche diye gaye har function ka **clear kaam** bataya gaya hai.
 
 **Purpose:**
 
-* Maximum element nikalna
+* Returns the maximum element in the list
 
 ---
 
@@ -149,7 +149,7 @@ Neeche diye gaye har function ka **clear kaam** bataya gaya hai.
 
 **Purpose:**
 
-* Minimum element nikalna
+* Returns the minimum element in the list
 
 ---
 
@@ -157,15 +157,15 @@ Neeche diye gaye har function ka **clear kaam** bataya gaya hai.
 
 **Purpose:**
 
-* Sabhi elements ka sum nikalna
+* Returns the sum of all elements
 
 ---
 
 ## 🔽 Sorting Functions (Bubble Sort → Merge Sort)
 
-Sorting ka purpose yahan **sirf order change karna nahi** tha, balki ye dikhana tha ki:
+The purpose of sorting in this project is **not just to change the order**, but to show that:
 
-> jaise-jaise data bada hota hai, waise-waise better algorithm ki zarurat padti hai
+> As data size increases, more efficient algorithms become necessary.
 
 ---
 
@@ -173,8 +173,8 @@ Sorting ka purpose yahan **sirf order change karna nahi** tha, balki ye dikhana 
 
 **Purpose:**
 
-* Basic sorting logic samajhna
-* Adjacent comparison ka concept clear karna
+* To understand basic sorting logic
+* To clearly grasp adjacent element comparison
 
 **Algorithm Used:**
 
@@ -186,7 +186,7 @@ Sorting ka purpose yahan **sirf order change karna nahi** tha, balki ye dikhana 
 
 **Note:**
 
-* Ye intentionally banaya gaya hai learning ke liye
+* This implementation is intentionally included for learning purposes
 
 ---
 
@@ -194,8 +194,8 @@ Sorting ka purpose yahan **sirf order change karna nahi** tha, balki ye dikhana 
 
 **Purpose:**
 
-* Bubble Sort ki high time complexity kam karna
-* Same descending order ko efficient banana
+* To reduce the high time complexity of Bubble Sort
+* To efficiently sort data in descending order
 
 **Algorithm Used:**
 
@@ -207,7 +207,7 @@ Sorting ka purpose yahan **sirf order change karna nahi** tha, balki ye dikhana 
 
 **Important Point:**
 
-* Merge Sort isliye use kiya gaya kyunki data bada hone par performance better rehti hai
+* Merge Sort is used because it performs significantly better on large datasets
 
 ---
 
@@ -215,8 +215,8 @@ Sorting ka purpose yahan **sirf order change karna nahi** tha, balki ye dikhana 
 
 **Purpose:**
 
-* Ascending order sorting implement karna
-* Comparison logic ko aur strong banana
+* To implement efficient sorting in ascending order
+* To strengthen comparison-based logic
 
 **Algorithm Used:**
 
@@ -232,22 +232,22 @@ Sorting ka purpose yahan **sirf order change karna nahi** tha, balki ye dikhana 
 
 **Purpose:**
 
-* Array ki capacity badhana
-* Purane data ko new memory me copy karna
+* Increases the array capacity
+* Copies old data into newly allocated memory
 
 ---
 
 ## 🧠 Final Conclusion
 
-* Is project ka **main focus array aur custom list banana** tha
-* Sorting functions isliye add kiye gaye taaki:
+* The **main focus of this project** was to understand arrays and build a custom list implementation
+* Sorting functions were added to:
 
-  * Bubble Sort se base clear ho
-  * Merge Sort se time complexity improve ho
+  * Learn basic sorting using Bubble Sort
+  * Improve time complexity using Merge Sort
 
-Is project se yeh clear hota hai ki:
+This project clearly demonstrates that:
 
-> **Better performance ke liye sirf code nahi, algorithm change karna padta hai**
+> **Better performance comes from choosing better algorithms, not just writing more code.**
 
 ---
 
